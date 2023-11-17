@@ -83,7 +83,9 @@ import useSWR from "swr"
 import axios from "axios"
 import { Skeleton } from 'antd';
 import Image from "next/image"
-
+import Cart from "@/components/cart"
+import { addToCart } from "@/redux/slices/cart";
+import { useDispatch } from "react-redux";
 const fetcher = async (url)=>{
   try{
     const {data} = await axios.get(url)
@@ -96,23 +98,27 @@ const fetcher = async (url)=>{
 }
 
 const Products = ({products})=>{
-
+  const dispatch = useDispatch()
   return(
-    <div className="grid grid-cols-4">
+    <>
+    <Cart />
+    <div className="grid grid-cols-4 gap-16 p-16">
       {
         products.map((product,productIndex)=>(
           <div key={productIndex}>
           <Image 
             src={product.image}
             width={220}
-            height={220}
+            height={200}
             alt={product.title}
           />
           <p>{product.title}</p>
+          <button className="bg-blue-500 text-white p-2" onClick={()=>dispatch(addToCart())}>Add to cart</button>
           </div>
         ))
       }
     </div>
+    </>
   )
   
 }
