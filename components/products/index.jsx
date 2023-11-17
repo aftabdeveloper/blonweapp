@@ -95,15 +95,10 @@ const fetcher = async (url)=>{
   }
 }
 
-const Products = ()=>{
-  const {data: products, error, isLoading} = useSWR("https://fakestoreapi.com/products",fetcher)
-  console.log(products)
-  if(isLoading) return <Skeleton active></Skeleton>
-
-  if(error) return <p>{error.message}</p>
+const Products = ({products})=>{
 
   return(
-    <div class="grid grid-cols-4">
+    <div className="grid grid-cols-4">
       {
         products.map((product,productIndex)=>(
           <div key={productIndex}>
