@@ -79,27 +79,47 @@
 // }
 
 // export default Products
-import Image from 'next/image'
+import useSWR from "swr"
+import axios from "axios"
+import { Skeleton } from 'antd';
+import Image from "next/image"
 
+const fetcher = async (url)=>{
+  try{
+    const {data} = await axios.get(url)
+    return data
+  }
+  catch(err)
+  {
+    throw new Error(err)
+  }
+}
 
-const Products = ({data})=>{
-  return (
-    <div className='grid grid-cols-4 gap-16'>
+const Products = ()=>{
+  const {data: products, error, isLoading} = useSWR("https://fakestoreapi.com/products",fetcher)
+  console.log(products)
+  if(isLoading) return <Skeleton active></Skeleton>
+
+  if(error) return <p>{error.message}</p>
+
+  return(
+    <div class="grid grid-cols-4">
       {
-        data && data.map((item,index)=>(
-          <div key={index}>
-            <Image 
-              src={item.image}
-              width={240}
-              height={240}
-              alt={item.title}
-            />
-            <p>{item.title}</p>
+        products.map((product,productIndex)=>(
+          <div key={productIndex}>
+          <Image 
+            src={product.image}
+            width={220}
+            height={220}
+            alt={product.title}
+          />
+          <p>{product.title}</p>
           </div>
         ))
       }
     </div>
   )
+  
 }
 
 export default Products

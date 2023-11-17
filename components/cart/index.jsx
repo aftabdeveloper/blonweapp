@@ -106,7 +106,7 @@ const Cart = ()=>{
     message.success('Item delete failed')
   }
   }
-  const itemLength = cartProducts && cartProducts.cart.lenght
+  const itemLength = cartProducts && cartProducts.cart.length
 
   const EmptyMessage = ()=>{
     return(            <Empty
