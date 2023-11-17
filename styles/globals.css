@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* For hiding the vertical scrollbar */
+.scroll::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  /* For hiding the horizontal scrollbar */
+  .scrollbar::-webkit-scrollbar {
+    height: 0;
+  }
+  
+  /* For hiding both vertical and horizontal scrollbars */
+  .controller::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  
+  /* Make the scrollbar transparent (if it's still visible) */
+  .thumb::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+  
