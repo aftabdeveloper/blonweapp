@@ -1,0 +1,52 @@
+{
+    "entity": "event",
+    "account_id": "acc_N2jVaU3sASuykE",
+    "event": "payment.captured",
+    "contains": ["payment"],
+    "payload": {
+      "payment": {
+        "entity": {
+          "id": "pay_N3X7D4G8XdVL1r",
+          "entity": "payment",
+          "amount": 5000,
+          "currency": "INR",
+          "status": "captured",
+          "order_id": "order_N3X6zJoHlTmCVs",
+          "invoice_id": null,
+          "international": false,
+          "method": "upi",
+          "amount_refunded": 0,
+          "refund_status": null,
+          "captured": true,
+          "description": "React course payment",
+          "card_id": null,
+          "bank": null,
+          "wallet": null,
+          "vpa": "success@razorpay",
+          "email": "youremail@example.com",
+          "contact": "+919999999999",
+          "notes": {
+            "address": "Razorpay Corporate Office"
+          },
+          "fee": 118,
+          "tax": 18,
+          "error_code": null,
+          "error_description": null,
+          "error_source": null,
+          "error_step": null,
+          "error_reason": null,
+          "acquirer_data": {
+            "rrn": "328059928965",
+            "upi_transaction_id": "EA626E456D434F1FCC8B37DE38205A35"
+          },
+          "created_at": 1700659033,
+          "upi": {
+            "vpa": "success@razorpay"
+          },
+          "base_amount": 5000
+        }
+      },
+      "created_at": 1700659034
+    }
+  }
+  

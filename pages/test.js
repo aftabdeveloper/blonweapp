@@ -19,7 +19,9 @@ const Test = ()=>{
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png",
         order_id: id, //This is a sample Order ID. Pass the `id` obtained in the response of createOrder().
         handler: async function (response) {
-          const x = await axios.post("/api/razorpay/payment",response)
+          //razorpay server will request from our server
+          // const x = await axios.post("/api/razorpay/payment",response)
+          // console.log(x)
         },
         prefill: {
           name: "aftab",
