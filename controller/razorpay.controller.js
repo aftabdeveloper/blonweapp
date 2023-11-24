@@ -4,12 +4,12 @@ export const createOrder = async (req,res)=>{
     try
     {
         const {amount} = req.body
-        const x = await Razorpay.orders.create({
+        const order = await Razorpay.orders.create({
             amount,
             currency: "INR",
             receipt: "dot-"+Date.now()
           })
-          res.status(200).json(x)
+          res.status(200).json(order)
     }
     catch(err)
     {

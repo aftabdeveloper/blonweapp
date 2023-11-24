@@ -3,6 +3,8 @@ const {Schema} = mongoose
 
 const paymentSchema = new Schema({
     id: {type: String, required: true},
+    product: {type: Schema.ObjectId, ref: "Product", required: true},
+    dues: {type: Boolean, required: true},
     amount:{type: Number, required: true},
     order_id:{type: String, required: true},
     description:{type: String, required: true},

@@ -29,7 +29,8 @@ const Test = ()=>{
           contact: "9999999999",
         },
         notes: {
-          address: "Razorpay Corporate Office",
+          product: "6560936249c21731fe9267a8",
+          type: "purchase"
         },
         theme: {
           color: "#3399cc",

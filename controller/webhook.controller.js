@@ -14,14 +14,18 @@ export const createPayment = async (req,res)=>{
     if(data.event === "payment.captured"){
         try
         {
-            await axios.post("/api/payment",data.payload.payment.entity)
-            res.status(200).json({success: true})
+            const payload = {
+                product: data.payload.payment.entity.notes.product,
+                dues: data.payload.payment.entity.notes.type === "dues" ? true : false,
+                ...data.payload.payment.entity
+            }
+            await axios.post("/api/payment",payload)
+            throw res.status(200).json({success: true})
         }
         catch(err)
         {
-            throw res.status(500).json({success: false})
+             res.status(500).json({success: false})
         }
-        return res.status(200).json({success: true})
     }
     res.status(204).json({success: true})
 }

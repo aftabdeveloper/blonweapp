@@ -13,3 +13,16 @@ export const create = async (req,res)=>{
     res.status(500).json(err)
  }
 }
+
+export const fetch = async (req,res)=>{
+   try
+   {
+      const payments = await Payment.find().populate('product')
+      res.status(200).json(payments)
+     
+   }
+   catch(err)
+   {
+      res.status(500).json(err)
+   }
+  }
